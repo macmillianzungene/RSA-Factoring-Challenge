@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+def find_factors(n):
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return i, n // i
+    return 1, n
+
+def factorize_file(filename):
+    with open(filename, 'r') as file:
+        for line in file:
+            n = int(line.strip())
+            p, q = find_factors(n)
+            print(f"{n}={p}*{q}")
+
+# Call the function with the path to your file
+# factorize_file('<path_to_your_file>')
+
